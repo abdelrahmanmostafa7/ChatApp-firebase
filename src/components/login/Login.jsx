@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./login.css";
 import { toast } from "react-toastify";
 import { use } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword ,signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import upload from "../../lib/upload"
@@ -28,15 +28,10 @@ const Login = () => {
     e.preventDefault();
     setLoading(true)
     const formData = new FormData(e.target);
-    
     const {username , email , password} = Object.fromEntries(formData)
-    
     try{
       const res = await createUserWithEmailAndPassword(auth,email,password)
-
-
       const imgUrl = await upload(avatar.file)
-
       await setDoc(doc(db,"users", res.user.uid),{
         username,
         email,
@@ -44,11 +39,9 @@ const Login = () => {
         id:res.user.uid,
         blocked:[]
       })
-
       await setDoc(doc(db, "userChats", res.user.uid), {
         chats:[]
       });
-      
       toast.success("Account Created! You can login now!")
     }
     catch(err){
@@ -57,12 +50,25 @@ const Login = () => {
     }finally{
       setLoading(false)
     }
-    
   }
 
-
-  const handleLogin = e=>{
+  const handleLogin = async(e)=>{
     e.preventDefault()
+    setLoading(true)
+    const formData = new FormData(e.target);
+    const {  email, password } = Object.fromEntries(formData);
+
+    try{
+      await signInWithEmailAndPassword(auth,email,password)
+    }
+    catch(err){
+      console.log(err);
+      toast.error(err.message)
+    }
+    finally{
+      setLoading(false)
+    }
+     
   }
 
   return (
@@ -77,7 +83,7 @@ const Login = () => {
       </div>
 
       <div className="separator"></div>
-      
+
       <div className="item">
         <h2>Create An Account</h2>
         <form onSubmit={handleRegister}>
