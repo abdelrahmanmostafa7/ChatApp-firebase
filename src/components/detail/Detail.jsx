@@ -30,10 +30,7 @@ const Detail = () => {
     }
   };
 
-  const handleLogout = () => {
-    auth.signOut();
-    resetChat();
-  };
+  
 
   return (
     <div className="detail">
@@ -85,9 +82,6 @@ const Detail = () => {
             : isReceiverBlocked
             ? "User blocked"
             : "Block User"}
-        </button>
-        <button className="logout" onClick={handleLogout}>
-          Logout
         </button>
       </div>
     </div>
