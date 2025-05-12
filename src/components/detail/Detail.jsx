@@ -10,10 +10,10 @@ const Detail = () => {
       <div className="user">
         <img src="./avatar.png" alt="" />
         <h2>Rawan Khaled</h2>
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
           harum!
-        </p>
+        </p> */}
       </div>
       <div className="info">
         <div className="option">

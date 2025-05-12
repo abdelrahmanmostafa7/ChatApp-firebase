@@ -13,7 +13,6 @@ const ChatList = () => {
   const { currentUser } = useUserStore();
   const { chatId, changeChat } = useChatStore();
 
-  console.log(chatId);
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -68,11 +67,14 @@ changeChat(chat.chatId , chat.user)
             className="item"
             key={chat.chatId || chat.user?.username}
             onClick={() => handleSelect(chat)}
+            // style={{
+            //   backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
+            // }}
           >
             <img src={chat.user?.avatar || "./avatar.png"} alt="avatar" />
             <div className="texts">
-              <span>{chat.user?.username || "No username"}</span>
-              <p>{chat.lastMessage || "No messages yet"}</p>
+              <span>{chat.user?.username}</span>
+              <p>{chat.lastMessage}</p>
             </div>
           </div>
         ))
