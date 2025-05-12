@@ -12,10 +12,10 @@ A real-time chat application built with **React.js** and **Firebase**, allowing 
 - 📜 **Chat List View** – See all your conversations in one place and search through them  
 - ➕ **Add New Chat** – Start a conversation with a new user  
 - 🧾 **Individual Chat View** – Open a chat and view detailed message history  
+- 🔍 **User Search** – Search for other users by username or email to start a chat  
+- 🚫 **Block User** – Block unwanted users to prevent them from sending messages  
 - 🔔 **Notification System** – Get notified when new messages arrive  
-- 🖼️ **Avatar Upload** – Personalize your profile with a photo  
-
----
+- 🖼️ **Avatar Upload** – Personalize your profile with a photo 
 
 ## 🛠️ Technologies Used
 
@@ -26,3 +26,5 @@ A real-time chat application built with **React.js** and **Firebase**, allowing 
 - **Zustand** – Lightweight state management for user and chat state  
 - **React Toastify** – User-friendly toast notifications  
 - **CSS** – Custom styling for UI  
+## 🌐 Live Demo
+🔗 https://chatapp-ashen-zeta.vercel.app/
