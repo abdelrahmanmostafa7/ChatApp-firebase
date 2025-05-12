@@ -43,6 +43,7 @@ const Login = () => {
         chats:[]
       });
       toast.success("Account Created! You can login now!")
+      window.location.reload();
     }
     catch(err){
       console.log(err);
@@ -60,6 +61,7 @@ const Login = () => {
 
     try{
       await signInWithEmailAndPassword(auth,email,password)
+      window.location.reload();
     }
     catch(err){
       console.log(err);
@@ -70,6 +72,8 @@ const Login = () => {
     }
      
   }
+
+
 
   return (
     <div className="login">
