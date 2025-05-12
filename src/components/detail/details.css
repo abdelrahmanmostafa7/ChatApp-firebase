@@ -82,15 +82,14 @@
     }
     button {
       padding: 15px;
-      background-color: rgb(255, 0, 0);
+      background-color: rgba(230, 74, 105, 0.553);
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: 600;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.796);
+        background-color: rgba(220, 20, 60, 0.796);
       }
 
       &.logout{
