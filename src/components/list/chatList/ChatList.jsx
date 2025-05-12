@@ -51,7 +51,7 @@ const ChatList = () => {
 
     userChats[chatIndex].isSeen = true;
 
-    const userChatsRef = doc(db, "userchats", currentUser.id);
+    const userChatsRef = doc(db, "userChats", currentUser.id);
 
     try {
       await updateDoc(userChatsRef, {
